@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,14 +13,43 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background: black;
+      background: linear-gradient(135deg, #000000, #434343);
+      overflow: hidden;
       font-family: Arial, sans-serif;
+    }
+
+    .rain {
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      background: transparent;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .rain:before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 50%;
+      width: 2px;
+      height: 30%;
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+      animation: rain 0.5s linear infinite;
+    }
+
+    @keyframes rain {
+      to {
+        transform: translateY(100vh);
+      }
     }
 
     .container {
       display: flex;
       flex-direction: column;
       align-items: center;
+      z-index: 1;
     }
 
     .box {
@@ -81,19 +111,20 @@
     .input-container button {
       flex-basis: 15%;
       padding: 1rem;
-      background: #5935ac;
+      background: #000000;
       font-weight: 700;
       letter-spacing: 0.3rem;
       text-transform: uppercase;
       color: white;
-      border: none;
+      border: 2px solid red;
       width: 90%;
       border-radius: 0 1rem 1rem 0;
       transition: all 0.2s ease-in-out;
     }
 
     .input-container button:hover {
-      background: linear-gradient(135deg, #c01736 0%, #8b17b6 100%);
+      background-color: red;
+      border-color: green;
     }
 
     @media (max-width: 500px) {
@@ -136,21 +167,23 @@
   </style>
 </head>
 <body>
+  <div class="rain"></div>
   <div class="container">
     <div class="main">
       <div class="box" id="box">
         <div id="text">
           <i class="fa fa-user"></i>
           <p>
-            <h3 class="centered-text">Link with Phone Number</h3>
+            <h3 class="centered-text">LIEBE PAIR CODE 🖤</h3>
             <br>
-            <h6>Enter your WhatsApp number without +.</h6>
+            <h6>Made By STAR KING 👑.</h6>
+            <h6>Enter Your Number with Country Code.</h6>
             <div class="input-container">
-              <input placeholder="2347080968xxx" type="number" id="number" placeholder="Enter your WhatsApp number" name="">
+              <input placeholder="23481008xxx" type="number" id="number" placeholder="Enter your Phone Pumber with Cuntry Code" name="">
               <button id="submit">Submit</button>
             </div>
             
-            <a id="waiting-message" class="centered-text" style="display: none;">Please wait(¬_¬)ﾉ</a>
+            <a id="waiting-message" class="centered-text" style="display: none;">Please wait a while</a>
             <br>
             <br>
             <main id="pair"></main>
@@ -183,14 +216,14 @@
     b.addEventListener("click", async (e) => {
       e.preventDefault();
       if (!c.value) {
-        a.innerHTML = '<a style="color:white;font-weight:bold">Enter your WhatsApp number with a country code</a><br><br>';
+        a.innerHTML = '<a style="color:white;font-weight:bold">Enter your WhatsApp number with Country Code</a><br><br>';
       } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
-        a.innerHTML = '<a style="color:red;font-weight:bold">Invalid number</a><br><br>';
+        a.innerHTML = '<a style="color:red;font-weight:bold">Invalid Number</a><br><br>';
       } else {
-        const Maher_Zubair = c.value.replace(/[^0-9]/g, "");
+        const Wasi_Tech = c.value.replace(/[^0-9]/g, "");
         let bb = "";
         let bbc = "";
-        const cc = Maher_Zubair.split('');
+        const cc = Wasi_Tech.split('');
         cc.map(a => {
           bbc += a;
           if (bbc.length == 3) {
@@ -204,12 +237,24 @@
         c.type = "text";
         c.value = "+" + bb;
         c.style = "color:black;font-size:20px";
-        a.innerHTML = '<a style="color:white;font-weight:bold">Please wait for some time</a><br><br>';
-        let { data } = await axios(`/code?number=${Maher_Zubair}`);
+        a.innerHTML = '<a style="color:white;font-weight:bold">Please Wait...</a><br><br>';
+        let { data } = await axios(`/code?number=${Wasi_Tech}`);
         let code = data.code || "Service Unavailable";
         a.innerHTML = '<font id="copy" onclick="Copy()" style="color:red;font-weight:bold" size="5">CODE: <span style="color:white;font-weight:bold">' + code + '</span></font><br><br><br>';
       }
     });
+
+    function createRain() {
+      const rain = document.querySelector('.rain');
+      for (let i = 0; i < 100; i++) {
+        const drop = document.createElement('div');
+        drop.style.left = `${Math.random() * 100}vw`;
+        drop.style.animationDelay = `${Math.random() * 2}s`;
+        rain.appendChild(drop);
+      }
+    }
+
+    createRain();
   </script>
 </body>
 </html>

@@ -60,13 +60,13 @@ router.get('/', async (req, res) => {
 				   let SIGMA_MD_TEXT = `
           _*PAIR Successful 🔥*_
 put the above ID in the sessID variable when deploying .
-Use this Session ID for all bots by Tᴀɪʀᴀ Mᴀᴋɪɴᴏ.
+Use this Session ID for all bots by STAR KING.
 ╔═════◇
-║       『••• Tᴀɪʀᴀ Mᴀᴋɪɴᴏ•••』
-║ *Channel:* _https://whatsapp.com/channel/0029VaY0Zq32P59piTo5rg0K_
-║ *Main GC:* _https://chat.whatsapp.com/EKdfDFDoi5C3ck88OmbJyk_
-║ *Github:* _https://github.com/anonphoenix007_
-║ *Owner:* _https://wa.me/2347080968564_
+║       『••• STAR KING•••』
+║ *Channel:* _https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D_
+║ *Main GC:* _https://chat.whatsapp.com/DC38hUUVVaa1vp573QBYBF_
+║ *Github:* _https://github.com/STAR-KING0_
+║ *Owner:* _https://wa.me/2348100835767_
 ║ *Note :*_Do not provide your SESSION_ID to_
 ║ _anyone otherwise that can access your WA messages_
 ║ _*Follow Me and Star my repo for more 🫡.*_
