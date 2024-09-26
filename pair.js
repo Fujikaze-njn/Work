@@ -6,7 +6,7 @@ const fs = require('fs');
 let router = express.Router()
 const pino = require("pino");
 const {
-    default: Maher_Zubair,
+    default: Gifted_Tech,
     useMultiFileAuthState,
     delay,
     makeCacheableSignalKeyStore,
@@ -20,13 +20,13 @@ function removeFile(FilePath){
 router.get('/', async (req, res) => {
     const id = makeid();
     let num = req.query.number;
-        async function SIGMA_MD_PAIR_CODE() {
+        async function GIFTED_MD_PAIR_CODE() {
         const {
             state,
             saveCreds
         } = await useMultiFileAuthState('./temp/'+id)
      try {
-            let Pair_Code_By_Maher_Zubair = Maher_Zubair({
+            let Pair_Code_By_Gifted_Tech = Gifted_Tech({
                 auth: {
                     creds: state.creds,
                     keys: makeCacheableSignalKeyStore(state.keys, pino({level: "fatal"}).child({level: "fatal"})),
@@ -35,16 +35,16 @@ router.get('/', async (req, res) => {
                 logger: pino({level: "fatal"}).child({level: "fatal"}),
                 browser: ["Chrome (Linux)", "", ""]
              });
-             if(!Pair_Code_By_Maher_Zubair.authState.creds.registered) {
+             if(!Pair_Code_By_Gifted_Tech.authState.creds.registered) {
                 await delay(1500);
                         num = num.replace(/[^0-9]/g,'');
-                            const code = await Pair_Code_By_Maher_Zubair.requestPairingCode(num)
+                            const code = await Pair_Code_By_Gifted_Tech.requestPairingCode(num)
                  if(!res.headersSent){
                  await res.send({code});
                      }
                  }
-            Pair_Code_By_Maher_Zubair.ev.on('creds.update', saveCreds)
-            Pair_Code_By_Maher_Zubair.ev.on("connection.update", async (s) => {
+            Pair_Code_By_Gifted_Tech.ev.on('creds.update', saveCreds)
+            Pair_Code_By_Gifted_Tech.ev.on("connection.update", async (s) => {
                 const {
                     connection,
                     lastDisconnect
@@ -54,11 +54,10 @@ router.get('/', async (req, res) => {
                 let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
                 await delay(800);
                let b64data = Buffer.from(data).toString('base64');
-             //  let session = await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: 'MAKINO-MD-V2;;;' + b64data });
-               let session = await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: data });
+               let session = await Pair_Code_By_Gifted_Tech.sendMessage(Pair_Code_By_Gifted_Tech.user.id, { text: '' + b64data });
 
-                 let SIGMA_MD_TEXT = `
-    *_Pair Successful❄️._*
+               let GIFTED_MD_TEXT = `
+      *_Pair Successful❄️._*
 put the above ID in the sessID variable when deploying .
 Use this Session ID for all bots by STAR KING.
 ╔═════◇
@@ -71,15 +70,15 @@ Use this Session ID for all bots by STAR KING.
 ║ _anyone otherwise that can access your WA messages_
 ║ _*Follow Me and Star my repo for more 🫡.*_
 ╚════════════════════════╝`
- await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id,{text:SIGMA_MD_TEXT},{quoted:session})
+ await Pair_Code_By_Gifted_Tech.sendMessage(Pair_Code_By_Gifted_Tech.user.id,{text:GIFTED_MD_TEXT},{quoted:session})
  
 
         await delay(100);
-        await Pair_Code_By_Maher_Zubair.ws.close();
+        await Pair_Code_By_Gifted_Tech.ws.close();
         return await removeFile('./temp/'+id);
             } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
                     await delay(10000);
-                    SIGMA_MD_PAIR_CODE();
+                    GIFTED_MD_PAIR_CODE();
                 }
             });
         } catch (err) {
@@ -90,6 +89,6 @@ Use this Session ID for all bots by STAR KING.
          }
         }
     }
-    return await SIGMA_MD_PAIR_CODE()
+    return await GIFTED_MD_PAIR_CODE()
 });
 module.exports = router
